@@ -76,8 +76,10 @@ function onLogout() {
 
 
 function logoutUser() {
-	return httpModule.fetchGet({
-		url: baseUrl + '/logout'
+	return httpModule.fetchPost({
+		url: baseUrl + '/logout',
+		formData = {},
+		isJson = true
 	});
 }
 

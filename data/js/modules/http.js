@@ -64,7 +64,8 @@
 		 * @returns {Promise<Response>}
 		 */
 	    fetchPost({url = '/', formData = {}, isJson = false}) {
-	    	const contentType = ((isJson) ? "application/json" : "multipart/form-data");
+	    	const contentType = ((isJson) ? "application/json; charset=utf-8" : "multipart/form-data");
+	    	formData = ((isJson && Object.keys(formData).length > 0) ? JSON.stringify(formData) : formData);
             return fetch(url, {
                 method: 'POST',
                 headers: {
@@ -72,7 +73,7 @@
                 },
                 mode: 'cors',
                 credentials: 'include',
-                body: ((isJson) ? JSON.stringify(formData) : formData)
+                body: formData
             })
 			.then(checkStatus)
             .then(json)
