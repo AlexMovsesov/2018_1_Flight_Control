@@ -21,11 +21,15 @@
             this.landing = null;
         }
 
-        get getLanding() {
+        get style() {
+            return "position: absolute; left:"+this.horizontal+"px; top:"+this.vertical+"px";
+        }
+
+        getLanding() {
             return this.landing;
         }
 
-        get getAirplane() {
+        getAirplane() {
             return this.airplane;
         }
 
@@ -47,8 +51,8 @@
          * @returns {number}
          */
         getDistance(point) {
-            let distance = Math.pow(this.center.x - point.x, 2);
-            distance += Math.pow(this.center.y - point.y, 2);
+            let distance = Math.pow(this.center.x - point['x'], 2);
+            distance += Math.pow(this.center.y - point['y'], 2);
             distance = Math.sqrt(distance);
             return distance;
         }

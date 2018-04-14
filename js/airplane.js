@@ -23,7 +23,7 @@
             this.is_lined = false;
         }
 
-        get getNextTile() {
+        getNextTile() {
             if(this.direction.length > 0 && this.moveable) {
                 return this.direction.shift();
             } else {
@@ -37,12 +37,12 @@
             }
         }
 
-        moveTo(tile) {
+        moveTo(tile, drawer) {
             if(!this.moveable) {
                 return false;
             }
             if(this.direction.length > 0) {
-                if(this.direction[0] == tile) {
+                if(this.direction[0] != tile) {
                     this.tile = tile;
                 }
             }
@@ -53,7 +53,36 @@
                 this.moveable = false;
                 this.tile.getLanding().incrementCount();
             }
+            drawer.redrawImage(this.img, tile);
             return true;
+        }
+        
+        makeDirection(line, tiles) {
+            const direction = [];
+            for(let i =0; i< line.length; i++) {
+                let point = line[i];
+                tiles.sort(function (firstTile, secondTile) {
+                    const firstDistance = firstTile.getDistance(point);
+                    const secondDistance = secondTile.getDistance(point);
+                    if(firstDistance > secondDistance){
+                        return 1;
+                    }
+                    else {
+                        return firstDistance == secondDistance ? 0 : -1;
+                    }
+                });
+                let inCond = false;
+                direction.forEach(function(point){
+                    if(point == tiles[0]) {
+                        inCond = true;
+                    }
+                });
+                if(!inCond) {
+                    direction.push(tiles[0]);
+                }
+            }
+            this.direction = direction;
+            return direction;
         }
 
     }

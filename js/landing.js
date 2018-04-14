@@ -13,6 +13,7 @@
         constructor(tile) {
             this.tile = tile;
             this.count = 0;
+            this.img = null;
         }
 
         get getTile() {

@@ -12,8 +12,8 @@ const rows = 10;
 const columns = 10;
 
 (function() {
-    const width = window.screen.width;
-    const height = window.screen.height;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     const tileWidth = Math.floor(width / rows);
     const tileHeight = Math.floor(height / columns);
     const canvas = new canvasManager(document.getElementById('game'));
@@ -28,4 +28,6 @@ const columns = 10;
     drawer.drawAirplane(airplane);
     const liner = new lineManager(canvas, canvas.getTiles);
     liner.addEvents(airplane, land, tileWidth, tileHeight, drawer);
+
+
 })();
