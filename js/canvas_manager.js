@@ -66,12 +66,21 @@
             return directionArr;
         }
 
-        landGenerate() {
+        landGenerate(rows, columns) {
             const size = this.tilesArr.length - 1;
-            const point = this.generateRandomNumber(size);
-            const tile = this.tilesArr[point];
-            tile.setLanding(new LandingModel(tile));
-            return tile.landing;
+            const pointHorizontal = Math.floor(size / 3);
+            const pointVertical = pointHorizontal + columns + 3;
+            console.log(pointHorizontal);
+            console.log(pointVertical);
+            const tiles = {};
+            tiles.horizontal = this.tilesArr[pointHorizontal];
+            tiles.vertical = this.tilesArr[pointVertical];
+            for(let tile in tiles){
+                if(tiles[tile] instanceof TileManager) {
+                    tiles[tile].setLanding(new LandingModel(tiles[tile]));
+                }
+            }
+            return tiles;
         }
         airplaneGenerate(rows, columns) {
             const size = this.borders.length - 1;

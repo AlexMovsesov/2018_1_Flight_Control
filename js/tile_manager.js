@@ -19,6 +19,8 @@
             };
             this.airplane = null;
             this.landing = null;
+            this.height = height;
+            this.width = width;
         }
 
         get style() {

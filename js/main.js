@@ -9,7 +9,7 @@ const lineManager = window.LineManager;
 const drawManager = window.DrawManager;
 
 const rows = 10;
-const columns = 10;
+const columns = 15;
 
 (function() {
     const width = window.innerWidth;
@@ -20,14 +20,17 @@ const columns = 10;
     canvas.setSize(width, height);
     canvas.mapGenerate(rows, columns, tileWidth, tileHeight);
     //random land near the center of map
-    let land = canvas.landGenerate();
+    let lands = canvas.landGenerate(rows, columns);
     //random airplane on the borders
     let airplane = canvas.airplaneGenerate(rows, columns);
+    let airplaneTwo = canvas.airplaneGenerate(rows, columns);
     const drawer = new drawManager(canvas.context, tileWidth, tileHeight);
-    drawer.drawLanding(land);
+    drawer.drawLanding(lands);
     drawer.drawAirplane(airplane);
+    drawer.drawAirplane(airplaneTwo);
     const liner = new lineManager(canvas, canvas.getTiles);
-    liner.addEvents(airplane, land, tileWidth, tileHeight, drawer);
+    liner.addEvents(airplane, lands[0], tileWidth, tileHeight, drawer);
+    liner.addEvents(airplaneTwo, lands[0], tileWidth, tileHeight, drawer);
 
 
 })();

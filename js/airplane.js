@@ -21,6 +21,9 @@
             this.direction = direction;
             this.img = null;
             this.is_lined = false;
+            this.arg = 0;
+            this.xDiff = this.tile.horizontal;
+            this.yDiff = this.tile.vertical;
         }
 
         getNextTile() {
@@ -38,9 +41,24 @@
         }
 
         moveTo(tile, drawer) {
+            const RadToDef = 180/Math.PI;
             if(!this.moveable) {
                 return false;
             }
+            const prev = {x: this.tile.center.x, y: this.tile.center.y,};
+            const current = {
+                x: tile.center.x,
+                y: tile.center.y,
+            };
+            // console.log(Math.sqrt((current.x - prev.x) ** 2 + (current.y - prev.y) ** 2));
+            // console.log(Math.atan2(current.y,current.x) - Math.atan2(prev.y,prev.x) * 180 / Math.PI);
+            let tan = ( Math.atan2(prev.y - current.y, current.x - prev.x) );
+            tan = (tan >= 0 ? tan : tan + 2*Math.PI);
+            tan *= RadToDef;
+            console.log(tan);
+            // this.arg = Math.atan2(prev - centerY, prevCenterX - centerX)*(180/3.14) > 0 ? this.arg + arg : this.arg - arg;
+            // console.log(this.arg);
+            const prevTile = this.tile;
             if(this.direction.length > 0) {
                 if(this.direction[0] != tile) {
                     this.tile = tile;
@@ -53,7 +71,8 @@
                 this.moveable = false;
                 this.tile.getLanding().incrementCount();
             }
-            drawer.redrawImage(this.img, tile);
+            drawer.redrawImage(this.img, prevTile, tile, this, tan, this.arg);
+            this.arg = tan;
             return true;
         }
         

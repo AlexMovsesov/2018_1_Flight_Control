@@ -64,6 +64,7 @@
 
             const tiles = this.tiles;
             const endOfLineHandler = (evt)=>{
+                startDrawLine({'clientX':land.tile.horizontal,'clientY':land.tile.vertical});
                 canvas.removeEventListener('mousemove', startDrawLine);
                 land.img.removeEventListener('mousemove', endOfLineHandler);
                 line = airplane.makeDirection(line, tiles).map(function(tile){
