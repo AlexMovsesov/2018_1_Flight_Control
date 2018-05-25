@@ -1,0 +1,7 @@
+include ../../blocks/common/mixins
+include ../../blocks/common/header
+section(class='signin box')
+    +makeBackLink('menu')
+    ul(class='menu__items list')
+        each link in links
+            +menuLink(link)

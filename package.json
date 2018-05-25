@@ -7,12 +7,12 @@
     "start": "DEBUG=mylogger node server",
     "start-api": "PORT=3000 DEBUG=mylogger node server",
     "start:raw": "node server",
-    "compile": "node server/compileTmpl.js",
+    "compile": "node compileTmpl.js",
     "dev": "webpack-dev-server --open",
     "dev-build": "webpack",
     "babel-test": "npx babel babel-test.js",
     "documentation": "bash documentation/docGenerator.sh",
-    "lint-styles": "find ./css -iname *.css | xargs csslint --config='.csslintrc'"
+    "lint-styles": "find ./js -iname *.scss | xargs sass-lint -c .sass-lint.yml -v -q"
   },
   "contributors": [
     "Alexandr Movsesov",
@@ -35,11 +35,15 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
     "csslint": "1.0.5",
     "eslint": "^4.19.1",
     "eslint-config-google": "^0.9.1",
-    "livereload": "^0.7.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "node-sass": "^4.9.0",
     "pug": "^2.0.3",
+    "pug-html-loader": "^1.1.5",
+    "sass-loader": "^7.0.1",
     "webpack": "^4.8.3",
     "webpack-cli": "^2.1.3",
     "webpack-dev-server": "^3.1.4"

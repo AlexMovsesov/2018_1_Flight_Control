@@ -1,0 +1,9 @@
+@import 'colors';
+
+html {
+  background-color: $red;
+}
+
+.tooltip__content {
+  position: absolute;
+}

@@ -1,0 +1,7 @@
+include ../../blocks/common/mixins
+include ../../blocks/common/header
+section(class='scoreboard box')
+    +makeBackLink('menu')
+    h1(class='box__header scoreboard__header')='Leaderboard'
+    div.js-scoreboard__table
+    div(class='js-scoreboard__paginator paginator')

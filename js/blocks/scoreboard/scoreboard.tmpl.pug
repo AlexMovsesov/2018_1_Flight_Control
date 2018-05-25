@@ -1,0 +1,31 @@
+table(class='scoreboard__table table')
+    thead
+        th='№'
+        th='Аватар'
+        th='Email'
+        th='Имя'
+        th='Счет'
+        th='Победы'
+        th='Рейтинг'
+    tbody
+        each value, indexOfLeaders in data.leaders
+            tr(class='scoreboard__row table__row')
+                td(class='scoreboard__cell table__cell')= value.id + 1
+                if value.avatar
+                    td(class='scoreboard__cell table__cell')
+                        img(src=value.avatar width=100 height='auto')
+                else
+                    td(class='scoreboard__cell table__cell')
+                        img(src='/img/avatar.png' width=100 height='auto')
+                td(class='scoreboard__cell table__cell')= value.email
+                td(class='scoreboard__cell table__cell')= value.name
+                td(class='scoreboard__cell table__cell')= value.rate
+                td(class='scoreboard__cell table__cell')= value.rate
+                td(class='scoreboard__cell table__cell')
+                    - for (var index = 0; index < value.rate; index++)
+                    i.fas.fa-star
+//- Avatar image can be loaded at the first column
+//- instead of stars implement loading game military rank image
+//- @todo Find military rank images
+//- @todo Place here img tag
+//- @todo Catch default case when the image is not setted

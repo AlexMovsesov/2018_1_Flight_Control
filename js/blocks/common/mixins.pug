@@ -1,0 +1,20 @@
+mixin makeBackLink(section)
+    a(href='#' data-section=section class='box__link box__link_back')='< Назад'
+mixin menuLink(link)
+    li(class='list__item')
+        a(class='menu_link' href='#' data-route=link.route)=link.name
+mixin makeForm(className, fields)
+    form(class=className+' form')
+        div.form__validation
+            each field in fields
+                div(class='form__input input')
+                    label(for=field.id, class='input__label')=field.label
+                    input(
+                        class='input__field'
+                        id=field.id,
+                        placeholder=field.placeholder||'',
+                        autocomplete=field.autocomplete||'off',
+                        type=field.type||'text',
+                        name=field.name
+                    )
+            input(class="form__submit js-submit" type='submit' value='Submit')

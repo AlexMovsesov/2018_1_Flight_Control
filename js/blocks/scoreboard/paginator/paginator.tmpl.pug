@@ -1,0 +1,25 @@
+-
+ //- css styles for paginator's links
+ var paginatorName = 'scoreboard_paginator';
+ var leftArrowClass = 'link paginator__link paginator__link-left';
+ var rightArrowClass = 'link paginator__link paginator__link-right';
+ var linkClass = 'link paginator__link';
+ var linkActiveClass = 'link paginator__link paginator__link-active';
+ //- Params for paginator
+ var isFirst = page === 1;
+ var isLast = page === count;
+ var maxPage = page + step;
+ maxPage = maxPage > count ? count : maxPage;
+ var minPage = page - step;
+ minPage = minPage < 1 ? 1 : minPage;
+ var i = minPage;
+
+if (!isFirst)
+    a(href='' class=leftArrowClass name=paginatorName value=page-1)= '<Назад'
+while i <= maxPage
+    if (i === page)
+        a(href='' class = linkClass + ' ' + linkActiveClass name = paginatorName)= i++
+    else
+        a(href='' class = linkClass name = paginatorName)= i++
+if (!isLast)
+    a(href='' class=rightArrowClass name = paginatorName value=page + 1)= 'Вперед>'

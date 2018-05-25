@@ -1,0 +1,41 @@
+include ../../blocks/common/mixins
+include ../../blocks/common/header
+section(class='signin box')
+    +makeBackLink('menu')
+    +makeForm('signup_form', [
+        {
+            id: 'email',
+            name: 'email',
+            label: 'Email',
+            placeholder: 'Type your email',
+            type: 'text'
+        },
+        {
+            id:'username',
+            name:'username',
+            label:'Username',
+            placeholder:'Type your username',
+            type:'text'
+        },
+        {
+            id: 'password',
+            name: 'password',
+            label: 'Password',
+            placeholder: 'Type your password',
+            type: 'password'
+        },
+        {
+            id: 'repeat_password',
+            name: 'repeat_password',
+            label: 'Retype password',
+            placeholder: 'Retype your password',
+            type: 'password'
+        },
+        {
+            id: 'img',
+            name: 'img',
+            label: 'Upload an avatar',
+            type: 'file'
+        }
+
+    ])

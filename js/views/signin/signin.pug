@@ -1,0 +1,20 @@
+include ../../blocks/common/mixins
+include ../../blocks/common/header
+section(class='signin box')
+    +makeBackLink('menu')
+    +makeForm('signin_form', [
+        {
+            id:'username',
+            name:'username',
+            label:'Username',
+            placeholder:'Type your username',
+            type:'text'
+        },
+        {
+            id: 'password',
+            name: 'password',
+            label: 'Password',
+            placeholder: 'Type your password',
+            type: 'password'
+        }
+    ])

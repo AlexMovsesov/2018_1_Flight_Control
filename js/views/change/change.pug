@@ -1,0 +1,59 @@
+include ../../blocks/common/mixins
+include ../../blocks/common/header
+section(class='change box')
+    +makeBackLink('menu')
+    h1(class='change__header header')='Profile'
+    table(class='change_info')
+        tr(class='change_info__row')
+            td(class='change_info__column')
+                img(class='avatar', width=100, height='auto')
+        tr(class='change_info__row')
+            td(class='change_info__column')
+                Username
+                span(class='change__username')
+        tr(class='change_info__row')
+            td(class='change_info__column')
+                Email
+                span(class='change__email')
+        tr(class='change_info__row')
+            td(class='change_info__column')
+                Score
+                span(class='change__score')
+
+    a(href='#' class='profile-form-activate')='Change profile'
+    +makeForm('profile-form', [
+        {
+            id: 'email',
+            name: 'email',
+            label: 'Email',
+            placeholder: 'Type your email',
+            type: 'text'
+        },
+        {
+            id: 'username',
+            name: 'username',
+            label: 'Username',
+            placeholder: 'Type your username',
+            type: 'text'
+        },
+        {
+            id: 'password',
+            name: 'password',
+            label: 'Password',
+            placeholder: 'Type your password',
+            type: 'password'
+        },
+        {
+            id: 'repeat_password',
+            name: 'repeat_password',
+            label: 'Retype password',
+            placeholder: 'Retype your password',
+            type: 'password'
+        },
+        {
+            id: 'img',
+            name: 'img',
+            label: 'Upload an avatar',
+            type: 'file'
+        }
+    ])
