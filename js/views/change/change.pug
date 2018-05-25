@@ -1,24 +1,18 @@
 include ../../blocks/common/mixins
 include ../../blocks/common/header
+mixin makeProfileRow(...content)
+    tr(class='profile__row')
+        td(class='profile__column')
+        -
+            content.join('')
 section(class='change box')
     +makeBackLink('menu')
-    h1(class='change__header header')='Profile'
-    table(class='change_info')
-        tr(class='change_info__row')
-            td(class='change_info__column')
-                img(class='avatar', width=100, height='auto')
-        tr(class='change_info__row')
-            td(class='change_info__column')
-                Username
-                span(class='change__username')
-        tr(class='change_info__row')
-            td(class='change_info__column')
-                Email
-                span(class='change__email')
-        tr(class='change_info__row')
-            td(class='change_info__column')
-                Score
-                span(class='change__score')
+    h1(class='change__header')='Profile'
+    table(class='change__info profile')
+        +makeProfileRow(img(class='profile__avatar', width=100, height='auto'))
+        +makeProfileRow('Username', span.profile__username)
+        +makeProfileRow('Email', span.profile__email)
+        +makeProfileRow('Score', span.change__score)
 
     a(href='#' class='profile-form-activate')='Change profile'
     +makeForm('profile-form', [
