@@ -1,7 +1,7 @@
 include ../../blocks/common/mixins
 include ../../blocks/common/header
 section(class='signin box')
-    +makeBackLink('menu')
+    +makeBackLink(data-section='menu')
     +makeForm('signup_form', [
         {
             id: 'email',

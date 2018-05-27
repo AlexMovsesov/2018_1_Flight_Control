@@ -7,12 +7,12 @@ mixin makeProfileRow(...content)
             content.join('')
 section(class='change box')
     +makeBackLink('menu')
-    h1(class='change__header')='Profile'
-    table(class='change__info profile')
-        +makeProfileRow(img(class='profile__avatar', width=100, height='auto'))
-        +makeProfileRow('Username', span.profile__username)
-        +makeProfileRow('Email', span.profile__email)
-        +makeProfileRow('Score', span.change__score)
+    //h1(class='change__header')='Profile'
+    //table(class='change__info profile')
+    //    +makeProfileRow(img(class='profile__avatar', width=100, height='auto'))
+    //    +makeProfileRow('Username', span.profile__username)
+    //    +makeProfileRow('Email', span.profile__email)
+    //    +makeProfileRow('Score', span.change__score)
 
     a(href='#' class='profile-form-activate')='Change profile'
     +makeForm('profile-form', [

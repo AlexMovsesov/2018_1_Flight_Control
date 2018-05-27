@@ -1,5 +1,5 @@
-mixin makeBackLink(section)
-    a(href='#' data-section=section class='box__link box__link_back')='< Назад'
+mixin makeBackLink()
+    a(href='#' class='box__link box__link_back')&attributes(attributes) < Назад
 mixin menuLink(link)
     li(class='list__item')
         a(class='menu_link' href='#' data-route=link.route)=link.name

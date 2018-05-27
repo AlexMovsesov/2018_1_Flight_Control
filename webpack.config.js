@@ -49,4 +49,9 @@ module.exports = {
         devServer: {
             contentBase: './js'
         },
+        resolve: {
+            alias: {
+                pug: path.resolve('./js/utils/render/')
+            }
+        },
 };

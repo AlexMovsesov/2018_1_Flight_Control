@@ -1,4 +1,4 @@
-export default function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;var pug_debug_filename, pug_debug_line;try {;pug_debug_line = 1;pug_debug_filename = "\u002FUsers\u002Falex\u002FWebstormProjects\u002Fflightcontrol\u002Fjs\u002Fblocks\u002Fcommon\u002Fmixins.pug";
+import {pug_merge, pug_classes, pug_style, pug_attr, pug_attrs, pug_escape, pug_rethrow, exports as pug} from 'pug/pug-runtime';function template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;var pug_debug_filename, pug_debug_line;try {;pug_debug_line = 1;pug_debug_filename = "\u002FUsers\u002Falex\u002FWebstormProjects\u002Fflightcontrol\u002Fjs\u002Fblocks\u002Fcommon\u002Fmixins.pug";
 
 
 
@@ -48,4 +48,4 @@ export default function template(locals) {var pug_html = "", pug_mixins = {}, pu
 
 
 
-} catch (err) {pug_rethrow(err, pug_debug_filename, pug_debug_line);};return pug_html;}
+} catch (err) {pug.rethrow(err, pug_debug_filename, pug_debug_line);};return pug_html;} export default template;

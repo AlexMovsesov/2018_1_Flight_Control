@@ -20,6 +20,7 @@ const Config = new Configuration({
         'animations',
         'generations',
         'input',
+        'user',
     ]
 });
 export {Config};
